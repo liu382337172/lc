@@ -1,6 +1,24 @@
-paas	app-jenkins.cn-xnp-cloud-pg.com.cn	jenkins	master	qa	8080	http	cicd	shared-xxx-paas-jenkins-master-0	10.126.145.8	8080	http
-paas	ops-jenkins.cn-x-cloud-pg.com.cn	jenkins	server	prd	8080	http	ops	shared-xxxx-paas-jenkins-server-0	10.126.147.7	8080	http
-abc	https.jjjj.com	k8s	master	qa	6443	tcp	k8s	consumer-qa-paas-k8s-master-0-VM:6443	10.126.161.8	6443	tcp
-dddd	https.kkkkk.com	k8s	master	qa	6443	tcp	k8s	consumer-qa-paas-k8s-master-1-VM:6443	10.126.161.7	6443	tcp
-eeee	https.eee.com	k8s-frontend	master	qa	6443	tcp	k8s	consumer-qa-paas-k8s-frontend-master-0-VM:6443	10.127.160.11	6443	https
-ffff	https.ffff.com	k8s-frontend	master	qa	6443	tcp	k8s	consumer-qa-paas-k8s-frontend-master-1-VM:6443	10.127.160.14	6443	https
+targets:
+  - target: "app-jenkins.cn-xnp-cloud-pg.com.cn:8080"
+    project: "prd"
+    env: text_env
+    application_name: "jenkins"
+    application_role: "server"
+    port: "8080"
+    protocol:  "http"
+	
+  - target: "https.jjjj.com:6443"
+    project: "abc"
+    env: "qa"
+    application_name: "k8s"
+    application_role: "master"
+    port: "6443"
+    protocol: "tcp"
+
+  - target: "https.kkkkk.com:6443"
+    project: "dddd"
+    env: "qa"
+    application_name: "k8s"
+    application_role:  "master"
+    port: "6443"
+    protocol: "https"
