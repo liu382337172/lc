@@ -6,7 +6,7 @@ targets:
     application_role: "server"
     port: "8080"
     protocol:  "http"
-	
+
   - target: "https.jjjj.com:6443"
     project: "abc"
     env: "qa"
